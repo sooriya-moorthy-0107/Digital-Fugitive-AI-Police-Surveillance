@@ -31,7 +31,7 @@ This project simulates a "Hide and Seek" scenario between a human user and an Ar
     ```
 3.  **Run the simulation:**
     ```bash
-    python runner.py
+    python runner3.py
     ```
 
 ## 🎮 Controls
