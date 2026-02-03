@@ -37,3 +37,6 @@ This project simulates a "Hide and Seek" scenario between a human user and an Ar
 ## 🎮 Controls
 * **Left Click:** Place/Remove Fugitives (Phase 1).
 * **ENTER Key:** Initiate Police Scan (Phase 2).
+
+
+© 2026 Sooriya Moorthy. All Rights Reserved.
