@@ -2,7 +2,7 @@
 
 A Python simulation where an AI agent systematically searches a city grid to find hidden thieves. Built using Pygame, this project showcases various Artificial Intelligence techniques including logical deduction, constraint propagation, domain reduction, and dynamic visual feedback.
 
-**📖 About the Project**
+<h2>**📖 About the Project**</h2>
 
 This project simulates a "Hide and Seek" scenario between a human user and an Artificial Intelligence.
 
