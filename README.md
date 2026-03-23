@@ -1,4 +1,4 @@
-**🚓 Digital Fugitive: AI Police Surveillance**
+#🚓 Digital Fugitive: AI Police Surveillance
 
 A Python simulation where an AI agent systematically searches a city grid to find hidden thieves. Built using Pygame, this project showcases various Artificial Intelligence techniques including logical deduction, constraint propagation, domain reduction, and dynamic visual feedback.
 
