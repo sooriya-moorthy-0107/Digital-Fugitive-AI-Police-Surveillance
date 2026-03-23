@@ -3,41 +3,42 @@ import sys
 import os
 import random
 
-# --- 1. INITIALIZATION ---
+
 pygame.init()
 pygame.mixer.init()
 
-# --- 2. SETTINGS & CONSTANTS ---
+
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 700
 GRID_SIZE = 8
 CELL_SIZE = 60
 MARGIN = 10
-AI_SEARCH_SPEED = 600  # Milliseconds between AI moves
+AI_SEARCH_SPEED = 600  
 
-# Calculate grid position to center it
+
 GRID_WIDTH = (CELL_SIZE * GRID_SIZE) + (MARGIN * (GRID_SIZE - 1))
 GRID_HEIGHT = (CELL_SIZE * GRID_SIZE) + (MARGIN * (GRID_SIZE - 1))
 START_X = (SCREEN_WIDTH - GRID_WIDTH) // 2
 START_Y = (SCREEN_HEIGHT - GRID_HEIGHT) // 2 + 50 
 
-# --- 3. COLORS ---
+
 NEON_BLUE = (0, 200, 255)
 NEON_RED = (255, 50, 50)
 NEON_GREEN = (50, 255, 50)
 NEON_YELLOW = (255, 255, 0)
 DARK_BLUE = (10, 10, 30)
-# Changed to solid grey for better visibility
-SOLID_GREY = (128, 128, 128) 
+
+
+SOLID_GREEN = (0, 128, 0) 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
-# --- 4. SETUP SCREEN (Moved to TOP to fix NameError) ---
+
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("AI Police Surveillance Project")
 clock = pygame.time.Clock()
 
-# --- 5. ASSET LOADING ---
+
 def load_image(name, scale=None):
     if os.path.exists(name):
         img = pygame.image.load(name)
@@ -46,17 +47,20 @@ def load_image(name, scale=None):
         return img
     return None
 
-# Load Assets
+
+
 bg_image = load_image("police_bg.jpg", (SCREEN_WIDTH, SCREEN_HEIGHT))
-# Reduce background transparency
+
+
 if bg_image:
     bg_image.set_alpha(150) 
 
 thief_icon = load_image("thief.png", (CELL_SIZE, CELL_SIZE))
-# Load the jail icon from the provided image
+
+
 jail_icon = load_image("jail.png", (CELL_SIZE, CELL_SIZE)) 
 
-# --- 6. MAIN GAME CLASS ---
+
 class Game:
     def __init__(self):
         # 0=Empty, 1=Hidden Thief, 2=Busted, 3=Checked Empty
@@ -123,9 +127,9 @@ class Game:
         pygame.draw.line(screen, WHITE, (0, 20), (SCREEN_WIDTH, 20), 2)
 
     def draw_grid(self):
-        # Use solid grey for better visibility
+        
         s_solid = pygame.Surface((CELL_SIZE, CELL_SIZE))
-        s_solid.fill(SOLID_GREY) 
+        s_solid.fill(SOLID_GREEN) 
 
         for row in range(GRID_SIZE):
             for col in range(GRID_SIZE):
@@ -135,28 +139,28 @@ class Game:
                 cell_value = self.grid[row][col]
                 border_color = NEON_BLUE
 
-                # Highlight AI scan
+               
                 if self.phase == 2 and self.current_scan == (row, col):
                     border_color = NEON_YELLOW
                     pygame.draw.rect(screen, NEON_YELLOW, (x, y, CELL_SIZE, CELL_SIZE), 4)
 
-                # Draw Cell Content
-                if cell_value == 0: # Empty
+                
+                if cell_value == 0:
                      screen.blit(s_solid, (x, y))
-                elif cell_value == 1: # Hidden Thief
+                elif cell_value == 1:
                     if self.phase == 1:
                         if thief_icon: screen.blit(thief_icon, (x, y))
                         else: pygame.draw.rect(screen, NEON_RED, (x, y, CELL_SIZE, CELL_SIZE))
                     else:
-                        screen.blit(s_solid, (x, y)) # Hidden in phase 2
-                elif cell_value == 2: # Busted
-                    # Display the jail icon when caught
+                        screen.blit(s_solid, (x, y)) 
+                elif cell_value == 2: 
+
                     if jail_icon: screen.blit(jail_icon, (x, y))
                     else: pygame.draw.rect(screen, NEON_GREEN, (x, y, CELL_SIZE, CELL_SIZE))
                     border_color = NEON_GREEN 
-                elif cell_value == 3: # Checked Empty
+                elif cell_value == 3: 
                      screen.blit(s_solid, (x, y))
-                     pygame.draw.circle(screen, (100, 100, 100), (x + CELL_SIZE//2, y + CELL_SIZE//2), 5)
+                     pygame.draw.circle(screen, (0, 0, 0), (x + CELL_SIZE//2, y + CELL_SIZE//2), 5)
 
                 if self.current_scan != (row, col):
                     pygame.draw.rect(screen, border_color, (x, y, CELL_SIZE, CELL_SIZE), 2)
