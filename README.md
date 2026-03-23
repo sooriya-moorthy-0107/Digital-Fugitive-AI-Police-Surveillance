@@ -12,113 +12,104 @@ This project simulates a "Hide and Seek" scenario between a human user and an Ar
 
 **🧠 Core Algorithms & AI Logic**
 
-This project explores multiple approaches to search and deduction:
+**This project explores multiple approaches to search and deduction:**
 
-Propositional Logic & Knowledge-Based Agents: The core AI (agent.py & brain.py) treats the grid like a Minesweeper board. It creates logical Sentence objects (e.g., {House A, House B} = 1 Thief).
+**Propositional Logic & Knowledge-Based Agents:** The core AI (agent.py & brain.py) treats the grid like a Minesweeper board. It creates logical Sentence objects (e.g., {House A, House B} = 1 Thief).
 
-Constraint Propagation & Set-Difference: The AI compares overlapping logical sentences. If {A, B, C} = 2 and {A, B} = 1, the AI deduces {C} = 1.
+**Constraint Propagation & Set-Difference:** The AI compares overlapping logical sentences. If {A, B, C} = 2 and {A, B} = 1, the AI deduces {C} = 1.
 
-Constraint Satisfaction Problem (CSP) / Domain Reduction: The Hot & Cold AI (agent_hc.py) starts with the entire grid as possible candidates and intersects sets to eliminate impossible locations based on exact distance signals.
+**Constraint Satisfaction Problem (CSP) / Domain Reduction:** The Hot & Cold AI (agent_hc.py) starts with the entire grid as possible candidates and intersects sets to eliminate impossible locations based on exact distance signals.
 
-Manhattan Distance / Heuristics: Used to calculate grid-based proximity (Heat Maps) without diagonal shortcuts.
+**Manhattan Distance / Heuristics:** Used to calculate grid-based proximity (Heat Maps) without diagonal shortcuts.
 
-Randomized Exhaustive Search: A baseline "blind search" algorithm used in early iterations to compare against the smart AI.
+**Randomized Exhaustive Search:** A baseline "blind search" algorithm used in early iterations to compare against the smart AI.
 
-⚙️ Features
+**⚙️ Features**
 
-Interactive Grid: Click to place/remove thieves before initiating the AI scan.
+**Interactive Grid:** Click to place/remove thieves before initiating the AI scan.
 
-Visual Feedback:
+**Visual Feedback:**
 
-🟨 Yellow Border: Police Scanner active.
+**🟨 Yellow Border:** Police Scanner active.
 
-🟢 Green Jail / Asset: Fugitive apprehended.
+**🟢 Green Jail / Asset:** Fugitive apprehended.
 
-⚪ Grey Dot / Translucent Cell: Sector clear.
+**⚪ Grey Dot / Translucent Cell:** Sector clear.
 
-Cyberpunk UI & Immersive Assets: Custom graphical assets (Police, Thieves, Jail), neon aesthetics, and atmospheric background sirens.
+**Cyberpunk UI & Immersive Assets:** Custom graphical assets (Police, Thieves, Jail), neon aesthetics, and atmospheric background sirens.
 
-🔥❄️ Hot and Cold Radar: The AI dynamically colors cleared sectors on a spectrum from Deep Blue (Cold) to Bright Red (Hot) based on proximity.
+**🔥❄️ Hot and Cold Radar:** The AI dynamically colors cleared sectors on a spectrum from Deep Blue (Cold) to Bright Red (Hot) based on proximity.
 
-Expanded Terrain: Play on a massive 16x16 grid that forces the AI to execute deeper logical search patterns.
+**Expanded Terrain:** Play on a massive 16x16 grid that forces the AI to execute deeper logical search patterns.
 
-🛠️ Tech Stack
+**🛠️ Tech Stack**
 
-Language: Python 3.x
+**Language:** Python 3.x
 
-Library: Pygame
+**Library:** Pygame
 
-🚀 How to Run
+**🚀 How to Run**
 
-Clone the repository:
-
+**Clone the repository:**
+```Bash
 git clone [https://github.com/sooriya-moorthy-0107/Digital-Fugitive-AI-Police-Surveillance.git](https://github.com/sooriya-moorthy-0107/Digital-Fugitive-AI-Police-Surveillance.git)
 cd Digital-Fugitive-AI-Police-Surveillance
+```
 
-
-Install requirements:
+**Install requirements:**
 ```bash
 pip install pygame
 ```
 
-Run the simulations (Choose your version):
+**Run the simulations (Choose your version):**
 
-The Ultimate Version (runner5.py) 🌟
+**The Ultimate Version (runner5.py) 🌟**
 
-Logic Used: Knowledge-Based Agent (Propositional Logic, Set-Difference) + Manhattan Distance calculations for the Heat Map.
+**Logic Used:** Knowledge-Based Agent (Propositional Logic, Set-Difference) + Manhattan Distance calculations for the Heat Map.
 
-Description: Combines everything: 16x16 Large Grid, Hot/Cold Radar visuals, Audio Sirens, and Image Assets.
-
+**Description:** Combines everything: 16x16 Large Grid, Hot/Cold Radar visuals, Audio Sirens, and Image Assets.
+```bash
 python runner5.py
+```
 
+**Classic Basic Version (runner.py)**
 
-Classic Basic Version (runner.py)
+**Logic Used:** Knowledge-Based Agent (agent.py). Base Minesweeper-style logic.
 
-Logic Used: Knowledge-Based Agent (agent.py). Base Minesweeper-style logic.
-
-Description: The original 8x8 grid using text and basic colors. Focuses purely on the base logical deduction algorithms.
-
+**Description:** The original 8x8 grid using text and basic colors. Focuses purely on the base logical deduction algorithms.
+```bash
 python runner.py
+```
 
+**Cyberpunk UI Version (runner2.py)**
 
-Cyberpunk UI Version (runner2.py)
+**Logic Used:** Randomized Blind Search (Brute Force Exhaustive Search).
 
-Logic Used: Randomized Blind Search (Brute Force Exhaustive Search).
-
-Description: Enhanced neon UI with transparent grids. The AI randomly scans the city without advanced memory logic.
-
+**Description:** Enhanced neon UI with transparent grids. The AI randomly scans the city without advanced memory logic.
+```bash
 python runner2.py
+```
 
+**Immersive Assets Version (runner3.py)**
 
-Immersive Assets Version (runner3.py)
+**Logic Used:** Randomized Blind Search.
 
-Logic Used: Randomized Blind Search.
-
-Description: Features background images, thief/police icons, and looping audio with random sector scanning.
-
+**Description:** Features background images, thief/police icons, and looping audio with random sector scanning.
+```bash
 python runner3.py
+```
 
+**CLI Text Version (runner4.py)**
 
-Proximity Sensing Version (runner_hc.py)
+**Logic Used:** Relative Proximity Feedback (comparing historical distance states).
 
-Logic Used: Constraint Satisfaction / Domain Reduction (agent_hc.py).
-
-Description: Uses absolute Manhattan distance measurements to eliminate grid coordinates until only the exact location of the fugitive remains.
-
-python runner_hc.py
-
-
-CLI Text Version (runner4.py)
-
-Logic Used: Relative Proximity Feedback (comparing historical distance states).
-
-Description: A terminal-based "Hot and Cold" number guessing game demonstrating the core proximity tracking logic without Pygame.
-
+**Description:** A terminal-based "Hot and Cold" number guessing game demonstrating the core proximity tracking logic without Pygame.
+```bash
 python runner4.py
+```
 
+**🎮 Controls**
 
-🎮 Controls
+**Left Click:** Place/Remove Fugitives (Phase 1).
 
-Left Click: Place/Remove Fugitives (Phase 1).
-
-ENTER Key: Initiate Police Scan & Radar (Phase 2).
+**ENTER Key:** Initiate Police Scan & Radar (Phase 2).
