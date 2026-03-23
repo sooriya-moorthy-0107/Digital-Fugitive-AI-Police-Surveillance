@@ -31,9 +31,12 @@ This project simulates a "Hide and Seek" scenario between a human user and an Ar
     ```
 3.  **Run the simulation:**
     ```bash
-    python runner.py
+    python runner3.py
     ```
 
 ## 🎮 Controls
 * **Left Click:** Place/Remove Fugitives (Phase 1).
 * **ENTER Key:** Initiate Police Scan (Phase 2).
+
+
+© 2026 Sooriya Moorthy. All Rights Reserved.
