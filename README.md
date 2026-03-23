@@ -7,7 +7,7 @@ A Python simulation where an AI agent systematically searches a city grid to fin
 This project simulates a "Hide and Seek" scenario between a human user and an Artificial Intelligence.
 <ol>
 <li><b>Phase 1 (Human):</b> You act as the Digital Fugitive, hiding thieves in a cyberpunk city grid.</li>
-
+<br>
 <li><b> Phase 2 (AI):</b> The Police AI takes over, scanning the grid sector-by-sector to locate the fugitives. Depending on the version you run, the AI uses different algorithms to hunt down the targets.</li>
 </ol>
 
