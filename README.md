@@ -1,4 +1,4 @@
-# 🚓 Digital Fugitive: AI Police Surveillance
+# 🚓 Digital Fugitive
 
 Step into a neon-lit cyberpunk world where man and machine play the ultimate game of hide and seek. Built with Pygame, this interactive Python simulation demonstrates how an Artificial Intelligence agent uses advanced algorithms to track down hidden thieves across a sprawling city grid.
 
